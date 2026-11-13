@@ -1,6 +1,6 @@
 # Contribution validation
 
-Each immediate contribution folder under `workflows`, `scripts`, `dashboards`,
+Each immediate contribution folder under `workflows`, `scripts`,
 or `connectors` must contain `README.md` and `manifest.json`.
 The starter package in `templates\contribution` is also checked.
 
@@ -11,7 +11,7 @@ The starter package in `templates\contribution` is also checked.
 | `name` | Lowercase, hyphen-separated identifier matching the contribution folder |
 | `displayName` | Nonempty human-readable name |
 | `description` | Nonempty description of the contribution |
-| `category` | `workflows`, `scripts`, `dashboards`, or `connectors` |
+| `category` | `workflows`, `scripts`, or `connectors` |
 | `entryPoint` | Relative path to an existing file inside the contribution |
 | `inputs` | Array of input definitions; use an empty array if none |
 

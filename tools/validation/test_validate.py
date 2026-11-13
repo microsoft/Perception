@@ -3,7 +3,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from validate import CATEGORIES, validate_package, validate_repository
+from validate import validate_package, validate_repository
 
 
 class ValidationTests(unittest.TestCase):
@@ -11,7 +11,7 @@ class ValidationTests(unittest.TestCase):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
-        for category in CATEGORIES:
+        for category in ("workflows", "scripts", "connectors"):
             (self.root / category).mkdir()
         self.package = self.root / "scripts" / "example-script"
         self.package.mkdir()
@@ -118,6 +118,21 @@ class ValidationTests(unittest.TestCase):
         (self.root / "scripts" / "undocumented").mkdir()
         errors = validate_repository(self.root)
         self.assertTrue(any("undocumented" in error for error in errors))
+
+    def test_repository_requires_supported_category_directories(self):
+        (self.root / "connectors").rmdir()
+        self.assertIn(
+            "connectors: category directory is missing",
+            validate_repository(self.root),
+        )
+
+    def test_dashboard_manifest_category_is_rejected(self):
+        self.manifest["category"] = "dashboards"
+        self.save()
+        self.assertIn(
+            "category must be one of workflows, scripts, connectors",
+            validate_package(self.package),
+        )
 
 
 if __name__ == "__main__":

@@ -6,7 +6,7 @@ import re
 from pathlib import Path, PureWindowsPath
 
 
-CATEGORIES = ("workflows", "scripts", "dashboards", "connectors")
+CATEGORIES = ("workflows", "scripts", "connectors")
 INPUT_TYPES = ("string", "integer", "number", "boolean")
 
 

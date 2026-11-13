@@ -6,15 +6,17 @@ content for others to review, deploy, and use in their own environments.
 
 Community contributions are separate from the Perception product. This scaffold
 does not include service implementation code, a standalone SDK, or runnable
-scenarios yet.
+scenario packages yet. The [HTTP examples](examples/README.md) demonstrate
+Microsoft Graph requests for session filtering, report retrieval, and playbook
+execution.
 
 ## Browse content
 
 | Directory | Content |
 | --- | --- |
+| [HTTP examples](examples/README.md) | Language-neutral Microsoft Graph request recipes |
 | [workflows](../workflows/README.md) | End-to-end processes using Perception, including Logic Apps |
 | [scripts](../scripts/README.md) | Standalone API-driven utilities |
-| [dashboards](../dashboards/README.md) | Workbooks, queries, and visualizations |
 | [connectors](../connectors/README.md) | Reusable adapters and plugins connecting Perception to other systems |
 
 Categories describe functionality, not contributor ownership; both Microsoft and
