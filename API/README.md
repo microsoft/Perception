@@ -4,6 +4,7 @@ Hands-on examples for people and agents using publicly documented Perception API
 
 | Sample | What it provides |
 | --- | --- |
+| [HTTP examples](HTTP/Examples/README.md) | Language-neutral Microsoft Graph requests for filtering sessions, retrieving reports, and running playbooks |
 | [Microsoft Graph with Insomnia](Insomnia-collection/README.md) | Importable requests, a read-only walkthrough, and separately configured create/cancel examples |
 
 Samples contain placeholders, not credentials or tenant data. Read each guide,

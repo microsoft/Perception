@@ -2,10 +2,12 @@
 
 ## Microsoft Graph: delegated access
 
-The [Graph Insomnia sample](../API/Insomnia-collection/README.md) calls
+The [Graph Insomnia sample](../API/Insomnia-collection/README.md) and
+[Perception API examples](../API/HTTP/Examples/README.md) call
 `https://graph.microsoft.com/beta/security/agenticSecurity`.
-It demonstrates delegated access with a work or school account, not a
-client-credentials or unattended sign-in flow.
+They demonstrate delegated access with a work or school account, not a
+client-credentials or unattended sign-in flow. Personal Microsoft accounts
+aren't supported.
 
 | What you will do | Microsoft Graph delegated permission |
 | --- | --- |
@@ -55,7 +57,7 @@ after [application registration](https://learn.microsoft.com/graph/auth-register
 Don't substitute another API's token or bypass a consent/access denial.
 
 Tokens expire. Obtain a fresh token through the same approved flow when necessary;
-this collection does not acquire or refresh tokens.
+these samples do not acquire or refresh tokens.
 
 ### Keep credentials and tenant data private
 
@@ -69,7 +71,7 @@ this collection does not acquire or refresh tokens.
   Graph authentication is distinct from direct Perception API authentication;
   changing the hostname doesn't make their tokens or request contracts equivalent.
 
-This sample intentionally covers delegated access only. Consult the current
+These samples intentionally cover delegated access only. Consult the current
 [overview](https://learn.microsoft.com/graph/api/resources/agenticsecurity-apioverview?view=graph-rest-beta)
 and the individual method's permission table for other authentication scenarios;
 this guide does not validate app-only compatibility.
@@ -84,3 +86,21 @@ Keep common endpoint and authentication instructions in shared docs. Each contri
 
 Do not store access tokens or client secrets in source control. Use the identity
 mechanism documented for the specific contribution, requesting only required access.
+
+## Graph request examples
+
+Complete the [delegated setup above](#microsoft-graph-delegated-access) before
+using the [Perception API examples](../API/HTTP/Examples/README.md). Reads require
+`Perception.Read.All`; creating or canceling sessions requires
+`Perception.Manage.All`, which also permits reads. Confirm the API and selected
+playbook are enabled in your tenant.
+
+The optional `GET /v1.0/me` lookup in
+[Filter sessions](../API/HTTP/Examples/filter-sessions.md) additionally requires delegated
+`User.Read`. Skip it if you already know your user object ID.
+
+For the API walkthrough and permission requirements, see
+[Use Perception in Microsoft Graph](https://learn.microsoft.com/en-us/graph/api/resources/agenticsecurity-apioverview?view=graph-rest-beta#authentication-and-permissions).
+Use a Microsoft Graph token; direct Perception service tokens and scopes aren't
+interchangeable. Do not grant extra permissions to work around an endpoint that
+isn't enabled.

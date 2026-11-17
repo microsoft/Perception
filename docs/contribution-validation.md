@@ -2,7 +2,7 @@
 
 Each immediate contribution folder under `workflows`, `scripts`, `dashboards`,
 `connectors`, or `API` must contain `README.md` and `manifest.json`.
-The starter package in `templates\contribution` is also checked.
+The validator also checks the starter package in `templates/contribution`.
 
 ## Manifest
 

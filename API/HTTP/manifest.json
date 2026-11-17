@@ -1,0 +1,51 @@
+{
+  "name": "http",
+  "displayName": "Perception in Microsoft Graph - HTTP examples",
+  "description": "Language-neutral HTTP recipes for session filtering, report retrieval, and playbook execution.",
+  "category": "API",
+  "entryPoint": "Examples/README.md",
+  "inputs": [
+    {
+      "name": "graphBaseUrl",
+      "description": "Tenant-enabled Microsoft Graph agentic security base URL; see the example setup.",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "accessToken",
+      "description": "Delegated Microsoft Graph token for the selected operation; configure only in the HTTP client's local authentication settings.",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "userId",
+      "description": "Microsoft Entra user object ID used for client-side initiator matching.",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "sessionId",
+      "description": "Returned session ID required for session-specific reads or cancellation.",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "playbookDefinitionId",
+      "description": "Catalog definition ID required for creating a session; verify its accepted inputs.",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "outputId",
+      "description": "Opaque output ID returned for the selected session, required for output metadata and content reads.",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "inputValue",
+      "description": "Authorized incident, alert, threat intelligence article, or subscription ID required by the selected playbook; zero-input playbooks use an empty inputs array.",
+      "type": "string",
+      "required": false
+    }
+  ]
+}
